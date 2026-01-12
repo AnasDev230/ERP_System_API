@@ -162,12 +162,9 @@ namespace ERP_System.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
@@ -187,9 +184,8 @@ namespace ERP_System.Migrations
                 name: "Attendances",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CheckInTime = table.Column<TimeSpan>(type: "time", nullable: true),
@@ -210,9 +206,8 @@ namespace ERP_System.Migrations
                 name: "Payrolls",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PayDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BasicSalary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Allowances = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -235,9 +230,9 @@ namespace ERP_System.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "039C8585-9C83-4294-9490-494A150514B6", "bd6b1511-3e49-4005-97e8-fcc4c0cd81dc", "Sales", "SALES" },
-                    { "3F78BEC5-91CF-40D6-A996-2DAFFFBA971A", "a6f1669a-9d4b-40b6-ab8f-6adc2375f27e", "Admin", "ADMIN" },
-                    { "F2A6879F-EDA2-4E5A-BAAF-EB14DDE95C10", "a57e0f28-75fb-4787-998a-fe6f6bb7f454", "Accountant", "ACCOUNTANT" }
+                    { "039C8585-9C83-4294-9490-494A150514B6", "ab359972-0dd2-4735-a4b6-f532cc714ddd", "Sales", "SALES" },
+                    { "3F78BEC5-91CF-40D6-A996-2DAFFFBA971A", "5dbb8790-82dd-408d-aa3d-fcbe8b81706d", "Admin", "ADMIN" },
+                    { "F2A6879F-EDA2-4E5A-BAAF-EB14DDE95C10", "22e3ba97-7eb4-4957-b7d3-8d8302bdac97", "Accountant", "ACCOUNTANT" }
                 });
 
             migrationBuilder.CreateIndex(

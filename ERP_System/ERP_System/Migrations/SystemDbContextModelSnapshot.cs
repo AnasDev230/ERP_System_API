@@ -24,11 +24,9 @@ namespace ERP_System.Migrations
 
             modelBuilder.Entity("ERP_System.Models.Domain.Attendance", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<TimeSpan?>("CheckInTime")
                         .HasColumnType("time");
@@ -39,8 +37,8 @@ namespace ERP_System.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -55,15 +53,9 @@ namespace ERP_System.Migrations
 
             modelBuilder.Entity("ERP_System.Models.Domain.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -73,10 +65,6 @@ namespace ERP_System.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -96,11 +84,9 @@ namespace ERP_System.Migrations
 
             modelBuilder.Entity("ERP_System.Models.Domain.Payroll", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Allowances")
                         .HasColumnType("decimal(18,2)");
@@ -111,8 +97,8 @@ namespace ERP_System.Migrations
                     b.Property<decimal>("Deductions")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
@@ -157,21 +143,21 @@ namespace ERP_System.Migrations
                         new
                         {
                             Id = "3F78BEC5-91CF-40D6-A996-2DAFFFBA971A",
-                            ConcurrencyStamp = "a6f1669a-9d4b-40b6-ab8f-6adc2375f27e",
+                            ConcurrencyStamp = "5dbb8790-82dd-408d-aa3d-fcbe8b81706d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "F2A6879F-EDA2-4E5A-BAAF-EB14DDE95C10",
-                            ConcurrencyStamp = "a57e0f28-75fb-4787-998a-fe6f6bb7f454",
+                            ConcurrencyStamp = "22e3ba97-7eb4-4957-b7d3-8d8302bdac97",
                             Name = "Accountant",
                             NormalizedName = "ACCOUNTANT"
                         },
                         new
                         {
                             Id = "039C8585-9C83-4294-9490-494A150514B6",
-                            ConcurrencyStamp = "bd6b1511-3e49-4005-97e8-fcc4c0cd81dc",
+                            ConcurrencyStamp = "ab359972-0dd2-4735-a4b6-f532cc714ddd",
                             Name = "Sales",
                             NormalizedName = "SALES"
                         });

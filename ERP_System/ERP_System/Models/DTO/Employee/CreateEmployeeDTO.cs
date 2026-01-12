@@ -8,6 +8,5 @@
         public string Phone { get; set; } = null!;
         public DateTime HireDate { get; set; }
         public decimal Salary { get; set; }
-        public string UserId { get; set; }
     }
 }
